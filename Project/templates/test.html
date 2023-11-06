@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Register</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='test.css')}}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  
+  <link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,900;1,600&display=swap"
+  />
+</head>
+<body>
+	<header class="site-header">
+		<nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+		  <div class="container">
+			<img src="{{image_file_7}}" class="logo">
+			<div class="collapse navbar-collapse" id="navbarToggle">
+			  <div class="navbar-nav mr-auto">
+				
+			  </div>
+			  <!-- Navbar Right Side -->
+			  <div class="navbar-nav">
+          <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+				{% if current_user.is_authenticated %}
+				<a class="nav-item nav-link" href="{{ url_for('test') }}">Test</a>
+				<a class="nav-item nav-link" href="{{ url_for('logout') }}">logout</a>
+				{%else%}
+				  <a class="nav-item nav-link" href="{{ url_for('login') }}">Login</a>
+				  <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
+				{% endif %}
+			  </div>
+			</div>
+		  </div>
+		</nav>
+	  </header>
+    <div class="wrapper">
+  	<div class="registration_form">
+  		<div class="title">
+  			Predict Your Diabetes
+  		</div>
+		
+
+  		<form method="POST" action="">
+			{{ form.hidden_tag()}}
+  			<div class="form_wrap">
+  				<div class="input_wrap">
+					{{ form.pregnancies.label(class="form-control-label")}}
+					{%if form.pregnancies.errors %}
+					{{ form.pregnancies(class="form-control form-control-ig is-invalid")}}
+					<div class="invalid-feedback">
+						{% for error in form.pregnancies.errors%}
+						<span> {{error}}</span>
+						{% endfor %}
+					</div>
+					{% else %}
+					{{ form.pregnancies(class="form-control form-control-ig")}}
+					{% endif %}
+  				</div>
+
+
+          <div class="input_wrap">
+            {{ form.glucose.label(class="form-control-label")}}
+            {%if form.glucose.errors %}
+            {{ form.glucose(class="form-control form-control-ig is-invalid")}}
+            <div class="invalid-feedback">
+              {% for error in form.glucose.errors%}
+              <span> {{error}}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+            {{ form.glucose(class="form-control form-control-ig")}}
+            {% endif %}
+            </div>
+
+
+            <div class="input_wrap">
+              {{ form.bloodpressure.label(class="form-control-label")}}
+              {%if form.bloodpressure.errors %}
+              {{ form.bloodpressure(class="form-control form-control-ig is-invalid")}}
+              <div class="invalid-feedback">
+                {% for error in form.bloodpressure.errors%}
+                <span> {{error}}</span>
+                {% endfor %}
+              </div>
+              {% else %}
+              {{ form.bloodpressure(class="form-control form-control-ig")}}
+              {% endif %}
+              </div>
+
+
+              <div class="input_wrap">
+                {{ form.skinthickness.label(class="form-control-label")}}
+                {%if form.skinthickness.errors %}
+                {{ form.skinthickness(class="form-control form-control-ig is-invalid")}}
+                <div class="invalid-feedback">
+                  {% for error in form.skinthickness.errors%}
+                  <span> {{error}}</span>
+                  {% endfor %}
+                </div>
+                {% else %}
+                {{ form.skinthickness(class="form-control form-control-ig")}}
+                {% endif %}
+                </div>
+
+
+                <div class="input_wrap">
+                  {{ form.insulin.label(class="form-control-label")}}
+                  {%if form.insulin.errors %}
+                  {{ form.insulin(class="form-control form-control-ig is-invalid")}}
+                  <div class="invalid-feedback">
+                    {% for error in form.insulin.errors%}
+                    <span> {{error}}</span>
+                    {% endfor %}
+                  </div>
+                  {% else %}
+                  {{ form.insulin(class="form-control form-control-ig")}}
+                  {% endif %}
+                  </div>
+
+
+
+                  <div class="input_wrap">
+                    {{ form.bmi.label(class="form-control-label")}}
+                    {%if form.bmi.errors %}
+                    {{ form.bmi(class="form-control form-control-ig is-invalid")}}
+                    <div class="invalid-feedback">
+                      {% for error in form.bmi.errors%}
+                      <span> {{error}}</span>
+                      {% endfor %}
+                    </div>
+                    {% else %}
+                    {{ form.bmi(class="form-control form-control-ig")}}
+                    {% endif %}
+                    </div>
+
+
+                    <div class="input_wrap">
+                      {{ form.diabetespedigreefunction.label(class="form-control-label")}}
+                      {%if form.diabetespedigreefunction.errors %}
+                      {{ form.diabetespedigreefunction(class="form-control form-control-ig is-invalid")}}
+                      <div class="invalid-feedback">
+                        {% for error in form.diabetespedigreefunction.errors%}
+                        <span> {{error}}</span>
+                        {% endfor %}
+                      </div>
+                      {% else %}
+                      {{ form.diabetespedigreefunction(class="form-control form-control-ig")}}
+                      {% endif %}
+                      </div>
+
+
+                      <div class="input_wrap">
+                        {{ form.age.label(class="form-control-label")}}
+                        {%if form.age.errors %}
+                        {{ form.age(class="form-control form-control-ig is-invalid")}}
+                        <div class="invalid-feedback">
+                          {% for error in form.age.errors%}
+                          <span> {{error}}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.age(class="form-control form-control-ig")}}
+                        {% endif %}
+                        </div>
+  				
+  				<div class="input_wrap">
+  					<input type="submit" value="Test Now" class="submit_btn">
+  				</div>
+
+
+
+  			</div>
+  		</form>
+  	</div>
+  </div>
+</body>
+</html>
